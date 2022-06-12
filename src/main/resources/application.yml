@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: aggregatedata-server
+  redis:
+    host: localhost
+    port: 6379
+    database: 5
+server:
+  port: 8080
