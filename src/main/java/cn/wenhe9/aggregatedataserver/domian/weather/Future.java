@@ -2,6 +2,8 @@
   * Copyright 2022 bejson.com 
   */
 package cn.wenhe9.aggregatedataserver.domian.weather;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 /**
@@ -12,6 +14,7 @@ import java.util.Date;
  */
 public class Future {
 
+    @JsonFormat(pattern = "YYYY-MM-dd")
     private Date date;
     private String temperature;
     private String weather;

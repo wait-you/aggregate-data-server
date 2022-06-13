@@ -23,7 +23,7 @@ public class WeatherServiceImpl implements WeatherService {
     @Override
     @Cacheable(cacheNames = "weather", cacheManager = "redisCacheManager")
     public WeatherResponse queryWeatherInfo(String key, String city) {
-        return restTemplate.getForObject(Common.WEATHER_BASE_URL + "query?city=" + city +"?key=" + key, WeatherResponse.class);
+        return restTemplate.getForObject(Common.WEATHER_BASE_URL + "query?city=" + city +"&key=" + key, WeatherResponse.class);
 
     }
 }

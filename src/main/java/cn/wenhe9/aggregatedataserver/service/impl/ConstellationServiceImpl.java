@@ -4,6 +4,7 @@ import cn.wenhe9.aggregatedataserver.constant.Common;
 import cn.wenhe9.aggregatedataserver.domian.city.CityResponse;
 import cn.wenhe9.aggregatedataserver.domian.constellation.ConstellationResponse;
 import cn.wenhe9.aggregatedataserver.service.ConstellationService;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -20,6 +21,7 @@ public class ConstellationServiceImpl implements ConstellationService {
     private RestTemplate restTemplate;
 
     @Override
+    @Cacheable(cacheNames = "constellation", cacheManager = "redisCacheManager")
     public ConstellationResponse queryConstellationInfo(String key, String keyword) {
         return restTemplate.getForObject(Common.CONS_BASE_URL + "query?key=" + key + "&keyword=" + keyword, ConstellationResponse.class);
     }
